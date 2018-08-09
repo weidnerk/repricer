@@ -40,7 +40,11 @@ namespace repricer
                 if (r.price != listing.SupplierPrice)
                 {
                     ++priceDiffer;
-                    dsutil.DSUtil.WriteFile(log_file, "Prices differ");
+                    if (listing.SupplierPrice < r.price)
+                        dsutil.DSUtil.WriteFile(log_file, "Prices differ -- NEED TO ADJUST - supplier price increased.");
+                    else
+                        dsutil.DSUtil.WriteFile(log_file, "Prices differ");
+
                     dsutil.DSUtil.WriteFile(log_file, string.Format("{0} {1}", listing.ListedItemID, listing.Title));
                     dsutil.DSUtil.WriteFile(log_file, string.Format("CategoryID: {0}", listing.CategoryID));
                     dsutil.DSUtil.WriteFile(log_file, string.Format("last price: {0}", r.price));
