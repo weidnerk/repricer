@@ -87,7 +87,7 @@ namespace repricer
                 }
             }
             if (!string.IsNullOrEmpty(body))
-                DSUtil.SendMailDev("kevinw@midfinance.com", subject, body);
+                DSUtil.SendMailDev("ventures2019@gmail.com", subject, body);
 
             string msg = string.Format("found {0} different prices.", priceDiffer);
             return msg;
